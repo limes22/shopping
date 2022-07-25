@@ -6,7 +6,8 @@ import SideBar from "./tiles/slidebar/SideBar";
 import Home from "./tiles/contents/Home";
 import Brand from "./tiles/contents/Brand";
 import Footer from "./tiles/footer/Footer";
-
+import Best from "./tiles/contents/Best";
+import Sale from "./tiles/contents/Sale";
 
 const App: React.FC = () => {
   return (
@@ -18,6 +19,8 @@ const App: React.FC = () => {
           {/* <Route path="/" element={<Shop />}></Route> */}
           <Route path="/" element={<Home />}></Route>
           <Route path="/brand" element={<Brand />}></Route>
+          <Route path="/best" element={<Best />}></Route>
+          <Route path="/sale" element={<Sale />}></Route>
         </Routes>
       </div>
       <Footer />

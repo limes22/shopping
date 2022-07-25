@@ -7,8 +7,49 @@ import "../../vendor/font-awesome/css/font-awesome.min.css";
 import "../../vendor/owl.carousel/assets/owl.carousel.css";
 
 const SideBar = () => {
-    const [current, setCurrent] = useState("nav-link")
-    let navigate = useNavigate();
+
+    const navigate = useNavigate();
+    const location = useLocation();
+
+    // const [current, setCurrent] = useState("nav-link")
+    // const [current2, setCurrent2] = useState("dropdown-toggle nav-link")
+    // const [current3, setCurrent3] = useState("dropdown-toggle nav-link")
+    // const [current4, setCurrent4] = useState("dropdown-toggle nav-link")
+
+    console.log(location.pathname);
+
+    useEffect(() => {
+        console.log("now im mount");
+        return () => console.log("now im unmount")
+    }, [location])
+
+    // switch (location.pathname) {
+    //     case "/":
+    //         setCurrent("nav-link active");
+    //         setCurrent2("dropdown-toggle nav-link");
+    //         setCurrent3("dropdown-toggle nav-link");
+    //         setCurrent4("dropdown-toggle nav-link");
+    //         break;
+    //     case "/brand":
+    //         setCurrent2("dropdown-toggle nav-link active");
+    //         setCurrent("nav-link");
+    //         setCurrent3("dropdown-toggle nav-link");
+    //         setCurrent4("dropdown-toggle nav-link");
+    //         break;
+    //     case "/best":
+    //         setCurrent("nav-link");
+    //         setCurrent2("dropdown-toggle nav-link");
+    //         setCurrent3("dropdown-toggle nav-link active");
+    //         setCurrent4("dropdown-toggle nav-link");
+    //         break;
+    //     case "/sale":
+    //         setCurrent2("dropdown-toggle nav-link");
+    //         setCurrent("nav-link");
+    //         setCurrent3("dropdown-toggle nav-link");
+    //         setCurrent4("dropdown-toggle nav-link active");
+    //         break;
+    //     default:
+    //         return;}
 
     return (
         <>
@@ -56,7 +97,7 @@ const SideBar = () => {
                     <div id="navigation" className="collapse navbar-collapse">
                         <ul className="navbar-nav mr-auto">
                             <li className="nav-item">
-                                <a className="nav-link"
+                                <a className={location.pathname === "/" ? "nav-link active" : "nav-link"}
                                     onClick={() => {
                                         navigate("/");
                                     }}
@@ -69,7 +110,7 @@ const SideBar = () => {
                                     data-toggle="dropdown"
                                     data-hover="dropdown"
                                     data-delay="200"
-                                    className="dropdown-toggle nav-link"
+                                    className={location.pathname === "/brand" ? "dropdown-toggle nav-link active" : "nav-link"}
                                     onClick={() => {
                                         navigate("/brand");
                                     }}
@@ -180,11 +221,13 @@ const SideBar = () => {
                             </li>
                             <li className="nav-item dropdown menu-large">
                                 <a
-                                    href="#"
                                     data-toggle="dropdown"
                                     data-hover="dropdown"
                                     data-delay="200"
-                                    className="dropdown-toggle nav-link"
+                                    className={location.pathname === "/best" ? "dropdown-toggle nav-link active" : "nav-link"}
+                                    onClick={() => {
+                                        navigate("/best");
+                                    }}
                                 >
                                     Best<b className="caret"></b>
                                 </a>
@@ -292,11 +335,13 @@ const SideBar = () => {
                             </li>
                             <li className="nav-item dropdown menu-large">
                                 <a
-                                    href="#"
                                     data-toggle="dropdown"
                                     data-hover="dropdown"
                                     data-delay="200"
-                                    className="dropdown-toggle nav-link"
+                                    className={location.pathname === "/sale" ? "dropdown-toggle nav-link active" : "nav-link"}
+                                    onClick={() => {
+                                        navigate("/sale");
+                                    }}
                                 >
                                     Sale<b className="caret"></b>
                                 </a>
