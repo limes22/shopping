@@ -5,6 +5,7 @@ import Header from "./tiles/header/Header";
 import SideBar from "./tiles/slidebar/SideBar";
 import Home from "./tiles/contents/Home";
 import Brand from "./tiles/contents/Brand";
+import Footer from "./tiles/footer/Footer";
 
 
 const App: React.FC = () => {
@@ -19,6 +20,7 @@ const App: React.FC = () => {
           <Route path="/brand" element={<Brand />}></Route>
         </Routes>
       </div>
+      <Footer />
     </>
   );
 }
